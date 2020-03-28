@@ -170,7 +170,7 @@ MonoBehaviour:
   Width: 8
   Height: 8
   Number: 8
-  BuriedChance: 0
+  BuriedChance: 0.4
 --- !u!4 &153060260
 Transform:
   m_ObjectHideFlags: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WantsToDig: 0
+  DigRange: 1
 --- !u!1 &687469402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3316063710690779412, guid: 205cf1ff10cc5ba45ac88ddd723600cd, type: 3}
@@ -403,7 +404,7 @@ MonoBehaviour:
   Template: {fileID: 2462546330240822360, guid: 394ad184e373ca94b9360592e3de309e, type: 3}
   Width: 8
   Height: 8
-  Number: 3
+  Number: 8
   BuriedChance: 0.4
 --- !u!4 &1162821703
 Transform:
@@ -592,7 +593,7 @@ MonoBehaviour:
   Template: {fileID: 2462546330240822360, guid: 3f1bfa56918df674c9f956da6a2bb6b3, type: 3}
   Width: 10
   Height: 8
-  Number: 6
+  Number: 8
   BuriedChance: 0.4
 --- !u!4 &2061385316
 Transform:

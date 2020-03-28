@@ -8,5 +8,6 @@ namespace Beach.Digging
     public struct Digger : IComponentData
     {
         public bool WantsToDig;
+        public float DigRange;
     }
 }

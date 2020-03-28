@@ -7,6 +7,6 @@ namespace Beach.Digging
     [Serializable]
     public struct Buried : IComponentData
     {
-        public int Depth;
+        public float Depth;
     }
 }

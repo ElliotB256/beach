@@ -22,7 +22,7 @@ namespace Beach.Player
                 .ForEach(
                 (ref Digger digger) =>
                 {
-                    digger.WantsToDig = Input.GetKeyDown(KeyCode.F);
+                    digger.WantsToDig = Input.GetKey(KeyCode.F);
                 });
         }
     }

@@ -8,22 +8,22 @@ namespace Beach.Carry
     [UpdateInGroup(typeof(FocusSystemGroup))]
     [UpdateAfter(typeof(ClearFocusFlagsSystem))]
     [UpdateBefore(typeof(FocusSystem))]
-    public class SetFocusForPickupSystem : JobComponentSystem
+    public class SetFocusForDiggingSystem : JobComponentSystem
     {
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             var carryableFlagsJobHandle =
-                Entities.WithNone<Carried, Buried>().WithAll<Carryable>().ForEach((ref Focusable f) => f.Category = FocusType.Carryable)
+                Entities.WithAll<Buried>().ForEach((ref Focusable f) => f.Category = FocusType.Buried)
                 .Schedule(inputDeps);
 
             var carrierFlagsJobHandle =
-                Entities.WithNone<Carrying>().ForEach(
-                    (ref Focussing f, ref Carrier carrier) =>
+                Entities.ForEach(
+                    (ref Focussing f, ref Digger digger) =>
                     {
-                        if (carrier.WantsToPickUp)
+                        if (digger.WantsToDig)
                         {
-                            f.Intention = FocusType.Carryable;
-                            f.Range = carrier.PickupRange;
+                            f.Intention = FocusType.Buried;
+                            f.Range = digger.DigRange;
                         }
                     })
                 .Schedule(carryableFlagsJobHandle);
