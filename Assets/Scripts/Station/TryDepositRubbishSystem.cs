@@ -34,6 +34,11 @@ namespace Beach.Station
             Entities.ForEach(
                 (Entity puttingDownEntity, ref PuttingDown puttingDown) =>
                 {
+                    var isDepositable = EntityManager.HasComponent<Depositable>(puttingDown.Carryable);
+
+                    if (!isDepositable)
+                        return;
+
                     var carrierPosition = translations[puttingDown.Carrier];
 
                     // Loop through rubbish stations
