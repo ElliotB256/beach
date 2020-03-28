@@ -13,7 +13,7 @@ namespace Beach.Scenery
     /// </summary>
     [GenerateAuthoringComponent]
     [Serializable]
-    [MaterialProperty("_tileVariant", MaterialPropertyFormat.Float4)]
+    [MaterialProperty("TileVariant", MaterialPropertyFormat.Float4)]
     public struct TileVariant : IComponentData
     {
         public float4 Value;

@@ -20,8 +20,9 @@ namespace Beach.Scenery
                         {
                             Value = new float3(x * 1f, 1f * y, 0f)
                         });
-                        int variant = UnityEngine.Random.Range(0, 8);
-                        var tileVariant = new TileVariant { Value = new float4(variant * 0.125f, 0.125f, 0f, 0f) };
+                        int sandVariant = UnityEngine.Random.Range(0, 8);
+                        int pebbleVariant = UnityEngine.Random.Range(0, 8);
+                        var tileVariant = new TileVariant { Value = new float4(sandVariant * 0.125f, 0.125f, pebbleVariant * 0.125f, 0.125f) };
                         EntityManager.AddComponentData(e, tileVariant);
                     }
                 }
