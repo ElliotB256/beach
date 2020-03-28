@@ -1,49 +1,37 @@
-﻿using Beach.Messages;
-using Unity.Collections;
+﻿using Beach.Focus;
+using Beach.Messages;
 using Unity.Entities;
-using Unity.Transforms;
 
 namespace Beach.Digging
 {
     public class TryToDigSystem : ComponentSystem
     {
-        EntityQuery DiggerQuery;
+        EntityCommandBufferSystem CommandBuffer;
 
         protected override void OnCreate()
         {
-            DiggerQuery = Entities.WithAll<Digger, Translation>().ToEntityQuery();
+            CommandBuffer = World
+                .GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
         }
 
         protected override void OnUpdate()
         {
-            var translations = GetComponentDataFromEntity<Translation>(true);
+            var buffer = CommandBuffer.CreateCommandBuffer();
 
-            var diggerNumber = DiggerQuery.CalculateEntityCount();
-            var diggers = DiggerQuery.ToEntityArray(Allocator.TempJob);
-            var diggerData = DiggerQuery.ToComponentDataArray<Digger>(Allocator.TempJob);
-
-            var runLoop = false;
-
-            for (var i = 0; i < diggerNumber; i++)
-            {
-                if (diggerData[i].WantsToDig)
+            Entities
+                .WithAll<Digger>()
+                .ForEach(
+                (Entity e, ref Focussing focussing, ref Digger digger) =>
                 {
-                    runLoop = true;
-                    break;
-                }
-            }
+                    if (!digger.WantsToDig || focussing.Intention != FocusType.Buried || focussing.Entity == Entity.Null)
+                        return;
 
-            if (runLoop)
-            {
-                Entities.ForEach(
-                    (Entity entity, ref Buried buried) =>
-                    {
-
-                    });
-            }
-
-            diggers.Dispose();
-            diggerData.Dispose();
+                    var digging = buffer.CreateEntity();
+                    buffer.AddComponent(digging,
+                        new Digging { Digger = e, Target = focussing.Entity }
+                    );
+                    buffer.AddComponent(digging, new Message());
+                });
         }
     }
 }

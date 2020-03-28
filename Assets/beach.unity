@@ -170,6 +170,7 @@ MonoBehaviour:
   Width: 8
   Height: 8
   Number: 8
+  BuriedChance: 0
 --- !u!4 &153060260
 Transform:
   m_ObjectHideFlags: 0
@@ -231,6 +232,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickupRange: 1
   WantsToPickUp: 0
+--- !u!114 &638232944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638232934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423909a5722f13246ac4f3a49220c849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WantsToDig: 0
 --- !u!1 &687469402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3316063710690779412, guid: 205cf1ff10cc5ba45ac88ddd723600cd, type: 3}
@@ -390,6 +404,7 @@ MonoBehaviour:
   Width: 8
   Height: 8
   Number: 3
+  BuriedChance: 0.4
 --- !u!4 &1162821703
 Transform:
   m_ObjectHideFlags: 0
@@ -578,6 +593,7 @@ MonoBehaviour:
   Width: 10
   Height: 8
   Number: 6
+  BuriedChance: 0.4
 --- !u!4 &2061385316
 Transform:
   m_ObjectHideFlags: 0
