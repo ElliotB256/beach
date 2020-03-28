@@ -66,6 +66,11 @@ namespace Beach.Carry
                         // See if this is preferable to our current choice.
                         // If it is, update the choice.
 
+                        var category = focusables[candidate].Category;
+
+                        if (focussing.Intention != category)
+                            continue;
+
                         float3 delta = (translation.Value - positions[candidate].Value);
                         float distance = math.length(delta);
                         if (distance > focussing.Range)

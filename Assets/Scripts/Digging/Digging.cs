@@ -5,9 +5,9 @@ namespace Beach.Digging
 {
     [GenerateAuthoringComponent]
     [Serializable]
-    public struct Digger : IComponentData
+    public struct Digging : IComponentData
     {
-        public bool WantsToDig;
-        public float DigRange;
+        public Entity Digger;
+        public Entity Target;
     }
 }
