@@ -13,6 +13,6 @@ namespace Beach.Station
     {
         RubbishType Material;
 
-        public const float DEPOSIT_RANGE = 1f;
+        public const float DEPOSIT_RANGE = 2f;
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using Unity.Entities;
+using Unity.Mathematics;
 
 namespace Beach.Movement
 {
     [GenerateAuthoringComponent]
     [Serializable]
-    public struct Movable : IComponentData
+    public struct Moveable : IComponentData
     {
+        public float2 Force;
     }
 }
