@@ -7,15 +7,6 @@ namespace Beach.Rubbish
     [Serializable]
     public struct Rubbish : IComponentData
     {
-        public Type Material;
-
-        public enum Type
-        {
-            Plastic,
-            Metal,
-            Glass,
-            Paper,
-            Misc
-        }
+        public RubbishType Material;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using Beach.Messages;
+using Unity.Entities;
 
 namespace Beach.Carry
 {
@@ -15,6 +16,7 @@ namespace Beach.Carry
                     {
                         var message = EntityManager.CreateEntity();
                         EntityManager.AddComponentData(message, new PuttingDown { Carrier = e, Carryable = carrying.Entity });
+                        EntityManager.AddComponentData(message, new Message());
                     }
                 }
                 );

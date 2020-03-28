@@ -1,7 +1,9 @@
-﻿using Unity.Entities;
+﻿using Beach.Messages;
+using Unity.Entities;
 
 namespace Beach.Carry
 {
+    [UpdateBefore(typeof(DeleteMessagesSystem))]
     public class DoPutDownSystem : ComponentSystem
     {
         protected override void OnUpdate()

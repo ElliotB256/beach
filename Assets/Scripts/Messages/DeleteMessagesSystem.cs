@@ -1,15 +1,13 @@
 ﻿using Unity.Entities;
 
-namespace Beach.Carry
+namespace Beach.Messages
 {
-    [UpdateAfter(typeof(DoPickupSystem))]
-    [UpdateAfter(typeof(DoPutDownSystem))]
     public class DeleteMessagesSystem : ComponentSystem
     {
         protected override void OnUpdate()
         {
             Entities
-                .WithAny<PickingUp,PuttingDown>()
+                .WithAny<Message>()
                 .ForEach(
                 (Entity e) =>
                 {

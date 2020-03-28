@@ -3,6 +3,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Collections;
 using Unity.Transforms;
+using Beach.Messages;
 
 namespace Beach.Carry
 {
@@ -89,6 +90,7 @@ namespace Beach.Carry
                         buffer.AddComponent(entityInQueryIndex, pickup,
                             new PickingUp { Carrier = carrierE, Carryable = choice[entityInQueryIndex] }
                             );
+                        buffer.AddComponent(entityInQueryIndex, pickup, new Message());
                     }
                 }
                 ).Schedule(inputDeps);
