@@ -4,13 +4,10 @@ using Unity.Transforms;
 
 namespace Beach.Carry
 {
-    /// <summary>
-    /// Finds PickingUp 
-    /// </summary>
     public class UpdateCarriedPositionSystem : ComponentSystem
     {
-        public const float CARRY_POSITION_OFFSET_Y = 0.5f;
-        public const float CARRY_POSITION_OFFSET_Z = -0.1f;
+        public const float CARRY_POSITION_OFFSET_Y = -0.1f;
+        public const float CARRY_POSITION_OFFSET_Z = -1f;
 
         protected override void OnUpdate()
         {

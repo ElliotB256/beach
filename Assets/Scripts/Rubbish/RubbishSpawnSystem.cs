@@ -30,7 +30,7 @@ namespace Beach.Rubbish
                         // Should the rubbish be buried?
                         if (UnityEngine.Random.value < spawner.BuriedChance)
                         {
-                            EntityManager.AddComponentData(e, new Buried { Depth = 2 });
+                            EntityManager.AddComponentData(e, new Buried { Depth = 1 });
                         }
 
                         var newTranslation = translation.Value + delta;

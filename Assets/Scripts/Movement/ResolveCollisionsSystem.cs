@@ -1,4 +1,5 @@
 ﻿using Beach.Carry;
+using Beach.Digging;
 using Beach.Movement;
 using Beach.Player;
 using Unity.Collections;
@@ -18,8 +19,8 @@ public class ResolveCollisionsSystem : ComponentSystem
 
     protected override void OnCreate()
     {
-        ColliderQuery = Entities.WithNone<Carried>().WithAll<CircularCollider, Translation>().ToEntityQuery();
-        MoveableQuery = Entities.WithAll<Moveable, Translation, CircularCollider>().ToEntityQuery();
+        ColliderQuery = Entities.WithNone<Carried,Buried>().WithAll<CircularCollider, Translation>().ToEntityQuery();
+        MoveableQuery = Entities.WithNone<Carried,Buried>().WithAll<Moveable, Translation, CircularCollider>().ToEntityQuery();
     }
 
     protected override void OnUpdate()

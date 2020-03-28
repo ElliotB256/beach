@@ -72,7 +72,7 @@ namespace Beach.Carry
                             continue;
 
                         float3 delta = (translation.Value - positions[candidate].Value);
-                        float distance = math.length(delta);
+                        float distance = math.length(delta.xy);
                         if (distance > focussing.Range)
                             continue;
 
