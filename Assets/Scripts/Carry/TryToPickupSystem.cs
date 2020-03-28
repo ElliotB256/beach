@@ -21,6 +21,8 @@ namespace Beach.Carry
             Entities.WithAll<Carrier>().ForEach(
                 (Entity e, ref Focussing focussing, ref Carrier carrier) =>
                 {
+                    if (focussing.Entity == Entity.Null)
+                        return;
                     if (!carrier.WantsToPickUp || focussing.Intention != FocusType.Carryable)
                         return;
                     var pickup = buffer.CreateEntity();
