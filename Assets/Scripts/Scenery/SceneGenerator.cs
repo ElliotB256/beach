@@ -7,6 +7,7 @@ namespace Beach.Scenery
     [Serializable]
     public struct SceneGenerator : IComponentData
     {
+        public Entity SandTile;
         public int Width;
         public int Height;
     }
