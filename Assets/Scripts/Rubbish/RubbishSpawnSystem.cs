@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using Beach.Digging;
+using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
@@ -25,6 +26,12 @@ namespace Beach.Rubbish
                             UnityEngine.Random.Range(-spawner.Height / 2f, spawner.Height / 2f),
                             0f
                             );
+
+                        // Should the rubbish be buried?
+                        if (UnityEngine.Random.value < spawner.BuriedChance)
+                        {
+                            EntityManager.AddComponentData(e, new Buried { Depth = 3 });
+                        }
 
                         var newTranslation = translation.Value + delta;
                         EntityManager.SetComponentData(e, new Translation { Value = newTranslation });

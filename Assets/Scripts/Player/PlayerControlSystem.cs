@@ -1,4 +1,5 @@
-﻿using Beach.Carry;
+﻿using Beach.Digging;
+using Beach.Carry;
 using Unity.Entities;
 using UnityEngine;
 
@@ -14,8 +15,15 @@ namespace Beach.Player
                 (ref Carrier carrier) =>
                 {
                     carrier.WantsToPickUp = Input.GetKey(KeyCode.Space);
-                }
-                );
+                });
+
+            Entities
+                .WithAll<Controlled>()
+                .ForEach(
+                (ref Digger digger) =>
+                {
+                    digger.WantsToDig = Input.GetKeyDown(KeyCode.F);
+                });
         }
     }
 }

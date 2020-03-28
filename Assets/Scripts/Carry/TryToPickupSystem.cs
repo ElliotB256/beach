@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.Collections;
 using Unity.Transforms;
 using Beach.Messages;
+using Beach.Digging;
 
 namespace Beach.Carry
 {
@@ -24,7 +25,10 @@ namespace Beach.Carry
                     ComponentType.ReadOnly<Translation>(),
                     ComponentType.ReadOnly<Carryable>()
                 },
-                None = new [] { ComponentType.ReadOnly<Carried>() }
+                None = new[] {
+                    ComponentType.ReadOnly<Carried>(),
+                    ComponentType.ReadOnly<Buried>()
+                }
             });
 
             CarrierQuery = GetEntityQuery(new EntityQueryDesc
@@ -33,7 +37,7 @@ namespace Beach.Carry
                     ComponentType.ReadOnly<Translation>(),
                     ComponentType.ReadOnly<Carrier>()
                 },
-                None = new [] { ComponentType.ReadOnly<Carrying>() }
+                None = new[] { ComponentType.ReadOnly<Carrying>() }
             });
 
             CommandBuffer = World

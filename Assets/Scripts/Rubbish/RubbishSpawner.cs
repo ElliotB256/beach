@@ -11,5 +11,6 @@ namespace Beach.Rubbish
         public float Width;
         public float Height;
         public int Number;
+        public float BuriedChance;
     }
 }
