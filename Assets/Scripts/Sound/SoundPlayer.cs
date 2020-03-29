@@ -8,6 +8,6 @@ namespace Beach.Sound
         public AudioClip Pluck;
         public AudioClip Up;
         public AudioClip Down;
-        public AudioClip Wave;
+        public AudioClip Attenborough;
     }
 }

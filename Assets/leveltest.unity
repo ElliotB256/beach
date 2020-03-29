@@ -1158,7 +1158,7 @@ MonoBehaviour:
   Pluck: {fileID: 8300000, guid: fb53292115cf8da49b412482723fc6c1, type: 3}
   Up: {fileID: 8300000, guid: a531b3a8c1682ce438dd344170a35f2a, type: 3}
   Down: {fileID: 8300000, guid: 7408b57e78376e64096b91bcd93d070b, type: 3}
-  Wave: {fileID: 0}
+  Attenborough: {fileID: 8300000, guid: e92e6da58f0358f4f95c1ca2fe1dc4bd, type: 3}
 --- !u!1 &610106473
 GameObject:
   m_ObjectHideFlags: 0
