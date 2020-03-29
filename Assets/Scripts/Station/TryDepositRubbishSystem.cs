@@ -44,7 +44,7 @@ namespace Beach.Station
                     // Loop through rubbish stations
                     var score = float.MaxValue;
                     Entity bestMatch = Entity.Null;
-                    for (var i=0; i < stationNumber; i++)
+                    for (var i = 0; i < stationNumber; i++)
                     {
                         var delta = carrierPosition.Value.xy - stationPositions[i].Value.xy;
                         var distance = math.length(delta);
