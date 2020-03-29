@@ -16,11 +16,13 @@ namespace Beach.Station
             Entities.ForEach(
                 (ref Depositing depositing) =>
                 {
-                    if (EntityManager.HasComponent<ScoreValue>(depositing.Depositee) && EntityManager.HasComponent<Rubbish.Rubbish>(depositing.Depositee))
+                    if (scoreHolders.HasComponent(depositing.Depositor)
+                    && EntityManager.HasComponent<ScoreValue>(depositing.Depositee)
+                    && EntityManager.HasComponent<Rubbish.Rubbish>(depositing.Depositee)
+                    && EntityManager.HasComponent<RubbishStation>(depositing.Deposit))
                     {
                         var rubbishScore = EntityManager.GetComponentData<ScoreValue>(depositing.Depositee);
                         var rubbish = EntityManager.GetComponentData<Rubbish.Rubbish>(depositing.Depositee);
-
                         var station = EntityManager.GetComponentData<RubbishStation>(depositing.Deposit);
 
                         var scoreHolder = scoreHolders[depositing.Depositor];
