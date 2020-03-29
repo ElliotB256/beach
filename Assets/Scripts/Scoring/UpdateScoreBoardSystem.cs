@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using Beach.Time;
+using Unity.Entities;
 using UnityEngine;
 
 namespace Beach.Scoring
@@ -27,7 +28,10 @@ namespace Beach.Scoring
         {
             var scoreHolder = GetSingleton<ScoreHolder>();
             if (ScoreText != null)
-                ScoreText.text = string.Format("Score: {0}", scoreHolder.TotalScore);
+                ScoreText.text = string.Format("Score: {0,-5:F0}", scoreHolder.TotalScore);
+            var timeHolder = GetSingleton<TimeHolder>();
+            if (TimeText != null)
+                TimeText.text = string.Format("Time: {0,-6:F2}", timeHolder.TimeRemaining);
         }
     }
 }
