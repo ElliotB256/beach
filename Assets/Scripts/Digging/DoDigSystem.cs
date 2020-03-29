@@ -15,15 +15,12 @@ namespace Beach.Digging
                 .ForEach(
                 (ref Digging digging) =>
                 {
-                    Buried buried;
-                    try
-                    {
-                        buried = burieds[digging.Target];
-                    }
-                    catch (ArgumentException)
+                    if(!burieds.HasComponent(digging.Target))
                     {
                         return;
                     }
+
+                    var buried = burieds[digging.Target];
 
                     buried.Depth -= Time.DeltaTime;
                     burieds[digging.Target] = buried;
