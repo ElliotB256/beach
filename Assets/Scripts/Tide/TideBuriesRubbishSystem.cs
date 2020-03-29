@@ -12,11 +12,13 @@ namespace Beach.Scenery
         protected override void OnUpdate()
         {
             //Eurgh I hate this, but we are approaching the deadline...Carried here it is...
-            Entities.WithNone<Carried>().WithAll<FloatingEnd>().ForEach((Entity e) =>
+            Entities.WithNone<Carried>().WithAll<FloatingEnd>().ForEach(
+                (Entity e) =>
             {
                 if (UnityEngine.Random.value < 0.15f)
                     EntityManager.AddComponentData(e, new Buried { Depth = UnityEngine.Random.Range(0.5f, 1f) });
-            });
+            }
+            );
         }
     }
 }

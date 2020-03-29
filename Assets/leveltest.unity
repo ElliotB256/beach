@@ -300,10 +300,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bin
       objectReference: {fileID: 0}
-    - target: {fileID: 3316063710690779412, guid: 205cf1ff10cc5ba45ac88ddd723600cd, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 205cf1ff10cc5ba45ac88ddd723600cd, type: 3}
 --- !u!1001 &188760574
