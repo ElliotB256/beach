@@ -27,9 +27,11 @@ namespace Beach.Scoring
         protected override void OnUpdate()
         {
             var scoreHolder = GetSingleton<ScoreHolder>();
+            var timeHolder = GetSingleton<TimeHolder>();
+
             if (ScoreText != null)
                 ScoreText.text = string.Format("Score: {0,-5:F0}", scoreHolder.TotalScore);
-            var timeHolder = GetSingleton<TimeHolder>();
+            
             if (TimeText != null)
                 TimeText.text = string.Format("Time: {0,-6:F2}", timeHolder.TimeRemaining);
         }

@@ -8,6 +8,8 @@ namespace Beach.Scenery
     public struct CrabSpawner : IComponentData
     {
         public Entity Template;
-        public float Rate;
+        public float BaseRate;
+        public float RateIncreasePerMinute;
+        public float StartTime;
     }
 }

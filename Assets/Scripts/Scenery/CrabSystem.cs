@@ -1,5 +1,6 @@
 ﻿using Beach.Carry;
 using Beach.Digging;
+using Beach.Time;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -11,10 +12,15 @@ namespace Beach.Scenery
     {
         protected override void OnUpdate()
         {
+            var time = GetSingleton<TimeHolder>();
             // Spawn new crabs
             Entities.ForEach((ref CrabSpawner spawner) =>
             {
-                float spawnChance = spawner.Rate * Time.DeltaTime;
+                if (time.Elapsed() < spawner.StartTime)
+                    return;
+
+                float rate = spawner.BaseRate + time.Elapsed() * spawner.RateIncreasePerMinute / 60f;
+                float spawnChance = rate * Time.DeltaTime;
                 if (UnityEngine.Random.value > spawnChance)
                     return;
 
@@ -31,7 +37,6 @@ namespace Beach.Scenery
                 EntityManager.SetComponentData(newCrab,
                     new Crab { Velocity = math.normalize(delta.xy) * 2f }
                     );
-                Debug.Log("Spawned a crab!");
             });
 
             // Update position of crabs
