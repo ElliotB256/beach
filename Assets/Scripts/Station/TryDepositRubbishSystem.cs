@@ -32,7 +32,7 @@ namespace Beach.Station
             var buffer = BufferSystem.CreateCommandBuffer();
 
             Entities.ForEach(
-                (Entity puttingDownEntity, ref PuttingDown puttingDown) =>
+                (ref PuttingDown puttingDown) =>
                 {
                     var isDepositable = EntityManager.HasComponent<Depositable>(puttingDown.Carryable);
 
@@ -70,6 +70,7 @@ namespace Beach.Station
                                 Depositor = puttingDown.Carrier
                             });
                         buffer.AddComponent(e, new Message());
+                        puttingDown.PlayPutDownSound = false;
                     }
                 }
                 );

@@ -15,7 +15,7 @@ namespace Beach.Carry
                     if (!carrier.WantsToPickUp)
                     {
                         var message = EntityManager.CreateEntity();
-                        EntityManager.AddComponentData(message, new PuttingDown { Carrier = e, Carryable = carrying.Entity });
+                        EntityManager.AddComponentData(message, new PuttingDown { Carrier = e, Carryable = carrying.Entity, PlayPutDownSound = true });
                         EntityManager.AddComponentData(message, new Message());
                     }
                 }

@@ -2,6 +2,8 @@
 using Beach.Messages;
 using Beach.Scoring;
 using Beach.Rubbish;
+using Beach.Sound;
+using UnityEngine;
 
 namespace Beach.Station
 {
@@ -9,6 +11,17 @@ namespace Beach.Station
     [UpdateBefore(typeof(DeleteMessagesSystem))]
     public class DoDepositRubbishSystem : ComponentSystem
     {
+        public SoundPlayer SoundPlayer;
+
+        protected override void OnStartRunning()
+        {
+            var go = GameObject.FindGameObjectWithTag("SoundPlayer");
+            if (go != null)
+            {
+                SoundPlayer = go.GetComponent<SoundPlayer>();
+            }
+        }
+
         protected override void OnUpdate()
         {
             var scoreHolders = GetComponentDataFromEntity<ScoreHolder>(false);
@@ -37,6 +50,8 @@ namespace Beach.Station
                             scoreHolder.TotalScore -= halfScore;
                         }
                         scoreHolders[depositing.Depositor] = scoreHolder;
+
+                        SoundPlayer.AudioSource.PlayOneShot(SoundPlayer.Pluck);
                     }
 
                     PostUpdateCommands.DestroyEntity(depositing.Depositee);

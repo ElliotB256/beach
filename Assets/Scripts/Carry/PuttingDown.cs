@@ -9,5 +9,6 @@ namespace Beach.Carry
     {
         public Entity Carrier;
         public Entity Carryable;
+        public bool PlayPutDownSound;
     }
 }
