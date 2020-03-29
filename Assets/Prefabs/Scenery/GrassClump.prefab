@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: GrassClump
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -58,5 +58,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Template: {fileID: 1034323280681824582, guid: 4543e53a099e7e5418965409ff37d927, type: 3}
-  Radius: 3
+  Radius: 2
   Number: 20
