@@ -11,7 +11,7 @@ namespace Beach.Station
     [Serializable]
     public struct RubbishStation : IComponentData
     {
-        RubbishType Material;
+        public RubbishType Material;
 
         public const float DEPOSIT_RANGE = 2f;
     }
