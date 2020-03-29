@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 638232941}
   - component: {fileID: 638232944}
   - component: {fileID: -7542898707835611176}
+  - component: {fileID: 8046389952196163026}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -68,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 731b0ed9f3df5ab46b3f26bc94a741f5, type: 2}
+  - {fileID: 2100000, guid: c5be8e1b21e81fb43a670caf459e8647, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -171,6 +172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 0.5
+  Offset:
+    x: 0
+    y: 0
+    z: 0
 --- !u!114 &638232941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,3 +217,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalScore: 0
+--- !u!114 &8046389952196163026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116410666345542702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740b4f7754db0a543a64d0d57527728c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 0

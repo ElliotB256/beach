@@ -24,7 +24,7 @@ namespace Beach.Scenery
                 if (tide.Phase > 1f)
                     tide.Phase = 0f;
 
-                tide.Speed = -tide.TranslationAmplitude * math.sin(math.PI * 2 * tide.Phase);
+                tide.Speed = -tide.TranslationAmplitude * math.sin(math.PI * 2 * tide.Phase) / 2f;
                 translation.Value = tide.Origin + tide.TranslationAmplitude * new float3(0.0f, 1.0f, 0.0f) * math.cos(math.PI * 2 * tide.Phase);
             });
         }

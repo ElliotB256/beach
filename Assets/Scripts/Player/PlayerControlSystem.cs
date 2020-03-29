@@ -25,8 +25,16 @@ namespace Beach.Player
                 .ForEach(
                 (ref Carrying carrying, ref Digger digger) =>
                 {
-                    digger.WantsToDig = EntityManager.HasComponent<Spade>(carrying.Entity);                        
+                    digger.WantsToDig = EntityManager.HasComponent<Spade>(carrying.Entity);
                 });
+
+            Entities.ForEach((Entity e, ref Mood mood) =>
+            {
+                if (EntityManager.HasComponent<Carrying>(e))
+                    mood.Value = 1f;
+                else
+                    mood.Value = 0f;
+            });
         }
     }
 }

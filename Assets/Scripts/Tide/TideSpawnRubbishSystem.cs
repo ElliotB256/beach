@@ -12,13 +12,32 @@ namespace Beach.Scenery
     {
         protected override void OnUpdate()
         {
-            Entities.ForEach((ref Tide tide, ref Translation translation) =>
+            
+            Entities.ForEach(
+                (
+                    DynamicBuffer <TideRubbishElement> buffer,
+                    ref Tide tide,
+                    ref Translation translation
+                    ) =>
             {
-                tide.Phase += Time.DeltaTime / tide.TimePeriod;
-                if (tide.Phase > 1f)
-                    tide.Phase = 0f;
+                if (!tide.IsComingIn())
+                    return;
 
-                translation.Value = tide.Origin + tide.TranslationAmplitude * new float3(0.0f, 1.0f, 0.0f) * math.cos(math.PI * 2 * tide.Phase);
+                float spawnChance = tide.SpawnRate * Time.DeltaTime;
+                if (UnityEngine.Random.value > spawnChance)
+                    return;
+
+                // Select a template
+                int index = UnityEngine.Random.Range(0, buffer.Length);
+                var element = buffer[index];
+
+                var spawned = EntityManager.Instantiate(element.Template);
+                EntityManager.SetComponentData(spawned,
+                    new Translation
+                    {
+                        Value = new float3(UnityEngine.Random.Range(-10f, 10f), -7f, 0f)
+                    }
+                    );
             });
         }
     }
