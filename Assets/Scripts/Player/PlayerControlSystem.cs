@@ -18,12 +18,14 @@ namespace Beach.Player
                         carrier.WantsToPickUp = !carrier.WantsToPickUp;
                 });
 
+            // If the player is holding the spade, they are 'digging'.
+            Entities.WithAll<Controlled>().ForEach((ref Digger digger) => digger.WantsToDig = false);
             Entities
                 .WithAll<Controlled>()
                 .ForEach(
-                (ref Digger digger) =>
+                (ref Carrying carrying, ref Digger digger) =>
                 {
-                    digger.WantsToDig = Input.GetKey(KeyCode.F);
+                    digger.WantsToDig = EntityManager.HasComponent<Spade>(carrying.Entity);                        
                 });
         }
     }

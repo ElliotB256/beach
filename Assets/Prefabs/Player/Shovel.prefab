@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7259666879426278042}
   - component: {fileID: 1113520364018873990}
   - component: {fileID: -6387862580555613588}
+  - component: {fileID: 3474814820069779333}
   m_Layer: 0
   m_Name: Shovel
   m_TagString: Untagged
@@ -108,3 +109,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversionMode: 0
+--- !u!114 &3474814820069779333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415836995530083678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4071a8ad105dd9c45ad638936dfd24a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
