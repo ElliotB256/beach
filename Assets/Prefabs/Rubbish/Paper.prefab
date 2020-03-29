@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -5593160922223154296}
   - component: {fileID: -1059960954052445631}
   - component: {fileID: -7256427700285590443}
+  - component: {fileID: 3860075240616394749}
   m_Layer: 0
   m_Name: Paper
   m_TagString: Untagged
@@ -149,3 +150,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 7
+--- !u!114 &3860075240616394749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462546330240822360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0af13367ae20f45ae0ad781d14b2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

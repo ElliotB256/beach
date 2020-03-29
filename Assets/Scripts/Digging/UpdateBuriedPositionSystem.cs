@@ -14,7 +14,6 @@ namespace Beach.Digging
                 .ForEach(
                 (ref Buried buried, ref Translation translation) =>
                 {
-                    // TODO: 
                     translation.Value.z = buried.Depth;
                 }
                 );

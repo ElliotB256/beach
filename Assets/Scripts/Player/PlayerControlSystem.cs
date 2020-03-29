@@ -14,7 +14,8 @@ namespace Beach.Player
                 .ForEach(
                 (ref Carrier carrier) =>
                 {
-                    carrier.WantsToPickUp = Input.GetKey(KeyCode.Space);
+                    if (Input.GetKeyDown(KeyCode.Space))
+                        carrier.WantsToPickUp = !carrier.WantsToPickUp;
                 });
 
             Entities
