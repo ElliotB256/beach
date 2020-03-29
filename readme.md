@@ -2,6 +2,8 @@
 
 You are a beach cleaning robot. Pick up litter from the beach, and put it in the bin. Use the spade to dig up buried items. Beware of the crabs!
 
+This project was made for the [Isolation Game Jam](https://itch.io/jam/isolation-game-jam), with the theme _Clean_.
+
 ## Controls
 
 * WASD: Movement
