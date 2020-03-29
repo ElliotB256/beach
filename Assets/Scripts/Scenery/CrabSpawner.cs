@@ -1,0 +1,13 @@
+﻿using System;
+using Unity.Entities;
+
+namespace Beach.Scenery
+{
+    [GenerateAuthoringComponent]
+    [Serializable]
+    public struct CrabSpawner : IComponentData
+    {
+        public Entity Template;
+        public float Rate;
+    }
+}
