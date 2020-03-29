@@ -2,6 +2,7 @@
 using Beach.Carry;
 using Unity.Entities;
 using UnityEngine;
+using Beach.Time;
 
 namespace Beach.Player
 {
@@ -34,6 +35,13 @@ namespace Beach.Player
                     mood.Value = 1f;
                 else
                     mood.Value = 0f;
+            });
+
+            // Start the pre round if it is not running.
+            Entities.ForEach((ref PreRoundPhase preRound) =>
+            {
+                if (!preRound.Running)
+                    preRound.Running = Input.GetKey(KeyCode.Space);
             });
         }
     }

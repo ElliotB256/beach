@@ -8,6 +8,7 @@ namespace Beach.Scoring
     {
         public TextMesh ScoreText;
         public TextMesh TimeText;
+        public TextMesh PreroundCountdown;
 
         protected override void OnStartRunning()
         {
@@ -17,11 +18,17 @@ namespace Beach.Scoring
             else
                 ScoreText = go.GetComponent<TextMesh>();
 
-            go = GameObject.Find("TimeText");
+            go = GameObject.FindGameObjectWithTag("TimeText");
             if (go == null)
                 Debug.LogError("Cannot find TimeText gameobject.");
             else
                 TimeText = go.GetComponent<TextMesh>();
+
+            go = GameObject.FindGameObjectWithTag("PreroundCountdown");
+            if (go == null)
+                Debug.LogError("Cannot find PreroundCountdown gameobject.");
+            else
+                PreroundCountdown = go.GetComponent<TextMesh>();
         }
 
         protected override void OnUpdate()
@@ -34,6 +41,18 @@ namespace Beach.Scoring
             
             if (TimeText != null)
                 TimeText.text = string.Format("Time: {0,-6:F2}", timeHolder.TimeRemaining);
+
+            if (PreroundCountdown != null)
+            {
+                if (Entities.WithAll<PreRoundPhase>().ToEntityQuery().CalculateEntityCount() > 0)
+                {
+                    var preRound = GetSingleton<PreRoundPhase>();
+                    if (preRound.Running)
+                        PreroundCountdown.text = string.Format("{0}", (int)(preRound.Remaining+1));
+                }
+                else
+                    PreroundCountdown.text = "";
+            }
         }
     }
 }

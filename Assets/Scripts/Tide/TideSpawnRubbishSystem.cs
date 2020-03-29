@@ -1,4 +1,5 @@
 ﻿using Beach.Misc;
+using Beach.Time;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -12,7 +13,12 @@ namespace Beach.Scenery
     {
         protected override void OnUpdate()
         {
-            
+            // Spawn no rubbish during pre phase.
+            // hacky
+            var inPreround = false;
+            Entities.WithAll<PreRoundPhase>().ForEach((Entity e) => inPreround = true);
+
+
             Entities.ForEach(
                 (
                     DynamicBuffer <TideRubbishElement> buffer,
@@ -20,7 +26,7 @@ namespace Beach.Scenery
                     ref Translation translation
                     ) =>
             {
-                if (!tide.IsComingIn())
+                if (!tide.IsComingIn() || inPreround)
                     return;
 
                 float spawnChance = tide.SpawnRate * Time.DeltaTime;

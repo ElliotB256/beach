@@ -1,6 +1,7 @@
 ﻿using Unity.Entities;
 using Beach.Messages;
 using Beach.Focus;
+using Beach.Time;
 
 namespace Beach.Carry
 {
@@ -16,11 +17,17 @@ namespace Beach.Carry
 
         protected override void OnUpdate()
         {
+            //hacky
+            var inPreround = false;
+            Entities.WithAll<PreRoundPhase>().ForEach((Entity e) => inPreround = true);
+
             var buffer = CommandBuffer.CreateCommandBuffer();
 
             Entities.WithAll<Carrier>().ForEach(
                 (Entity e, ref Focussing focussing, ref Carrier carrier) =>
                 {
+                    if (inPreround)
+                        return;
                     if (focussing.Entity == Entity.Null)
                         return;
                     if (!carrier.WantsToPickUp || focussing.Intention != FocusType.Carryable)
