@@ -37,7 +37,7 @@ public class ResolveCollisionsSystem : ComponentSystem
                 // Loop through colliders. Check for overlap with each.
                 for (var i = 0; i < colliders.Length; i++)
                 {
-                    var delta = (colliderPositions[i].Value - translation.Value).xy;
+                    var delta = (colliderPositions[i].Value+colliders[i].Offset - translation.Value).xy;
                     var distance = math.length(delta);
 
                     if (distance < 1e-3) // this is to prevent zero-length vectors from giving nan when we take direction.

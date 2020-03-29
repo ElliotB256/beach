@@ -1,5 +1,6 @@
 ﻿using System;
 using Unity.Entities;
+using Unity.Mathematics;
 
 namespace Beach.Movement
 {
@@ -8,5 +9,6 @@ namespace Beach.Movement
     public struct CircularCollider : IComponentData
     {
         public float Radius;
+        public float3 Offset;
     }
 }
